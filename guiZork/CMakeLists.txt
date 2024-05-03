@@ -34,6 +34,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Driveway.cpp
         Livingroom.h Livingroom.cpp
         Kitchen.h Kitchen.cpp
+        Diningroom.h Diningroom.cpp
 
 
 
