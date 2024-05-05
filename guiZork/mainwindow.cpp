@@ -6,11 +6,17 @@
 #include <QPixmap>
 #include <iostream>
 #include "Player.h"
+
 #include "Driveway.h"
 #include "Hall.h"
 #include "Livingroom.h"
 #include "Kitchen.h"
-
+#include "Diningroom.h"
+#include "Bathroom1.h"
+#include "Bathroom2.h"
+#include "Garden.h"
+#include "Pool.h"
+#include "Bedroom.h"
 
 using namespace std;
 
@@ -104,6 +110,7 @@ void MainWindow::setKitchen(){
 
 void MainWindow::setDiningRoom(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/diningRoom.webp");
+    Player::getInstance().setRoom(&Diningroom::getInstance());
 }
 
 void MainWindow::setLivingRoom(){
@@ -113,22 +120,27 @@ void MainWindow::setLivingRoom(){
 
 void MainWindow::setBathroom1(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/bathroom1.webp");
+    Player::getInstance().setRoom(&Bathroom1::getInstance());
 }
 
 void MainWindow::setGarden(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/garden.webp");
+    Player::getInstance().setRoom(&Garden::getInstance());
 }
 
 void MainWindow::setBedroom(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/bedroom.jpg");
+    Player::getInstance().setRoom(&Bedroom::getInstance());
 }
 
 void MainWindow::setPool(){
-    setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/bedroom.jpg");
+    setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/pool.jpg");
+    Player::getInstance().setRoom(&Pool::getInstance());
 }
 
 void MainWindow::setBathroom2(){
-    setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/bedroom.jpg");
+    setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/bathroom2.jpg");
+    Player::getInstance().setRoom(&Bathroom2::getInstance());
 }
 
 
@@ -160,9 +172,17 @@ void MainWindow::on_startButton_clicked(){
     Hall::getInstance().setMainWindow(this);
     Livingroom::getInstance().setMainWindow(this);
     Kitchen::getInstance().setMainWindow(this);
+    Diningroom::getInstance().setMainWindow(this);
+    Bathroom1::getInstance().setMainWindow(this);
+    Garden::getInstance().setMainWindow(this);
+    Pool::getInstance().setMainWindow(this);
+    Bedroom::getInstance().setMainWindow(this);
+    Bathroom2::getInstance().setMainWindow(this);
+
     modifyButtonVisibility(true);
     modifyButtonAvailability(true);
     ui->startButton->hide();
+
     Player::getInstance().setRoom(&Driveway::getInstance());
     Player::getInstance().getRoom()->setRoom();
 
@@ -175,8 +195,7 @@ void MainWindow::on_startButton_clicked(){
 
 void MainWindow::on_upButton_clicked()
 {
-    cout<<"up button:" <<
-        Player::getInstance().getRoom()->getName()<<endl;
+    cout<<"up button:" << Player::getInstance().getRoom()->getName()<<endl;
 
 
     Player::getInstance().getRoom()->goUp();

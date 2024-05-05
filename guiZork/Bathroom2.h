@@ -1,25 +1,22 @@
-#ifndef DININGROOM_H
-#define DININGROOM_H
+#ifndef BATHROOM2_H
+#define BATHROOM2_H
 #include "Room.h"
 #include "mainwindow.h"
-using namespace std;
 
-class Diningroom : public Room
+class Bathroom2 : public Room
 {
 public:
-    static Diningroom& getInstance();
+    static Bathroom2& getInstance();
     void setMainWindow(MainWindow* mainWindow);
     void setRoom() const override;
     void goUp() override;
     void goDown() override;
     void goLeft() override;
     void goRight() override;
-
 private:
     static MainWindow* mainWindowPtr;
-    Diningroom();
-    static Diningroom* instance;
+    Bathroom2();
+    static Bathroom2* instance;
 };
 
-#endif // DININGROOM_H
-
+#endif // BATHROOM2_H

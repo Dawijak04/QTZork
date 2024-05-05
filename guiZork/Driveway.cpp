@@ -30,7 +30,6 @@ void Driveway::goDown(){
 }
 void Driveway::goUp(){
     mainWindowPtr->setHall();
-    //Player::getInstance().setRoom(&Hall::getInstance());
 }
 void Driveway::goLeft(){
     cout<<"invalid"<<endl;

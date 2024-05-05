@@ -35,6 +35,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Livingroom.h Livingroom.cpp
         Kitchen.h Kitchen.cpp
         Diningroom.h Diningroom.cpp
+        Bathroom1.h Bathroom1.cpp
+        Garden.h Garden.cpp
+        Pool.h Pool.cpp
+        Bedroom.h Bedroom.cpp
+        Bathroom2.h Bathroom2.cpp
 
 
 
