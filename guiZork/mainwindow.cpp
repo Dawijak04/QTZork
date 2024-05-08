@@ -95,51 +95,64 @@ void MainWindow::startScreen(){
 
 void MainWindow::setDriveway(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/driveway.jpg");
+    hideItems();
+    showItemsDriveway();
     Player::getInstance().setRoom(&Driveway::getInstance());
 }
 
 void MainWindow::setHall(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/hall.jpg");
+    hideItems();
+    showItemsHall();
     Player::getInstance().setRoom(&Hall::getInstance());
 }
 
 void MainWindow::setKitchen(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/kitchen.png");
+    hideItems();
     Player::getInstance().setRoom(&Kitchen::getInstance());
 }
 
 void MainWindow::setDiningRoom(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/diningRoom.webp");
+    hideItems();
     Player::getInstance().setRoom(&Diningroom::getInstance());
 }
 
 void MainWindow::setLivingRoom(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/livingRoom.jpg");
+    hideItems();
+    showItemsLivingroom();
     Player::getInstance().setRoom(&Livingroom::getInstance());
 }
 
 void MainWindow::setBathroom1(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/bathroom1.webp");
+    hideItems();
     Player::getInstance().setRoom(&Bathroom1::getInstance());
 }
 
 void MainWindow::setGarden(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/garden.webp");
+    hideItems();
     Player::getInstance().setRoom(&Garden::getInstance());
 }
 
 void MainWindow::setBedroom(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/bedroom.jpg");
+    hideItems();
     Player::getInstance().setRoom(&Bedroom::getInstance());
 }
 
 void MainWindow::setPool(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/pool.jpg");
+    hideItems();
     Player::getInstance().setRoom(&Pool::getInstance());
 }
 
 void MainWindow::setBathroom2(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/bathroom2.jpg");
+    hideItems();
     Player::getInstance().setRoom(&Bathroom2::getInstance());
 }
 
@@ -178,6 +191,7 @@ void MainWindow::on_startButton_clicked(){
     Pool::getInstance().setMainWindow(this);
     Bedroom::getInstance().setMainWindow(this);
     Bathroom2::getInstance().setMainWindow(this);
+    initializeItems();
 
     modifyButtonVisibility(true);
     modifyButtonAvailability(true);
@@ -188,6 +202,74 @@ void MainWindow::on_startButton_clicked(){
 
 }
 
+void MainWindow::initializeItems(){
+    //Driveway Items
+    Driveway::getInstance().createItems();
+    setImageLabel(ui->ItemDriveway1, QString::fromStdString(Driveway::getInstance().getItems().at(0).getPath()));
+
+    //Hall Items
+    Hall::getInstance().createItems();
+    setImageLabel(ui->ItemHall1, QString::fromStdString(Hall::getInstance().getItems().at(0).getPath()));
+
+    //Living Room Items
+    Livingroom::getInstance().createItems();
+    setImageLabel(ui->ItemLivingroom1, QString::fromStdString(Livingroom::getInstance().getItems().at(0).getPath()));
+    setImageLabel(ui->ItemLivingroom2, QString::fromStdString(Livingroom::getInstance().getItems().at(1).getPath()));
+
+
+
+    hideItems();
+
+}
+
+void MainWindow::hideItems(){
+    ui->ItemDriveway1->hide();
+    ui->ItemHall1->hide();
+    ui->ItemLivingroom1->hide();
+    ui->ItemLivingroom2->hide();
+
+}
+
+void MainWindow::showItemsDriveway(){
+    hideItems();
+    ui->ItemDriveway1->show();
+}
+
+void MainWindow::showItemsHall(){
+    hideItems();
+    ui->ItemHall1->show();
+}
+
+void MainWindow::showItemsLivingroom(){
+    hideItems();
+    ui->ItemLivingroom1->show();
+    ui->ItemLivingroom2->show();
+}
+
+
+void MainWindow::showItemsDiningroom(){
+
+}
+void MainWindow::showItemsKitchen(){
+
+}
+
+void MainWindow::showItemsBedroom(){
+
+}
+void MainWindow::showItemsBathroom1(){
+
+}
+void MainWindow::showItemsBathroom2(){
+
+}
+void MainWindow::showItemsGarden(){
+
+}
+void MainWindow::showItemsPool(){
+
+}
+
 
 
 
@@ -195,7 +277,7 @@ void MainWindow::on_startButton_clicked(){
 
 void MainWindow::on_upButton_clicked()
 {
-    cout<<"up button:" << Player::getInstance().getRoom()->getName()<<endl;
+    //cout<<"up button:" << Player::getInstance().getRoom()->getName()<<endl;
 
 
     Player::getInstance().getRoom()->goUp();
@@ -205,7 +287,7 @@ void MainWindow::on_upButton_clicked()
 
 void MainWindow::on_downButton_clicked()
 {
-    cout<< "down button:"<< Player::getInstance().getRoom()->getName()<<endl;
+    //cout<< "down button:"<< Player::getInstance().getRoom()->getName()<<endl;
 
     Player::getInstance().getRoom()->goDown();
 }

@@ -1,6 +1,8 @@
 #ifndef ROOM_H
 #define ROOM_H
 #include <string>
+#include "Item.h"
+#include <vector>
 
 
 
@@ -19,6 +21,9 @@ public:
     virtual void goRight();
     virtual void goUp();
     virtual void goDown();
+    virtual void createItems() = 0;
+    virtual vector<Item> getItems() = 0;
+
 };
 
 #endif // ROOM_H

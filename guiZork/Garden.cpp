@@ -3,6 +3,7 @@
 
 Garden* Garden::instance = nullptr;
 MainWindow* Garden::mainWindowPtr = nullptr;
+vector<Item> Garden::Items;
 
 Garden& Garden::getInstance(){
     if(!instance){
@@ -32,4 +33,11 @@ void Garden::goLeft(){
     mainWindowPtr->setPool();
 }
 void Garden::goRight(){
+}
+
+void Garden::createItems(){
+}
+
+vector<Item> Garden::getItems(){
+    return Items;
 }

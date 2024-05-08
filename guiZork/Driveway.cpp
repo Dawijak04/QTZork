@@ -5,6 +5,7 @@ using namespace std;
 
 Driveway* Driveway::instance = nullptr;
 MainWindow* Driveway::mainWindowPtr = nullptr;
+vector<Item> Driveway::Items;
 
 Driveway& Driveway::getInstance(){
     if(!instance){
@@ -37,3 +38,15 @@ void Driveway::goLeft(){
 void Driveway::goRight(){
     cout<<"invalid"<<endl;
 }
+
+
+void Driveway::createItems(){
+    Item car = Item("Car", 0, "D:/Downloads/ZorkImages/car.png", 1);
+    Items.push_back(car);
+}
+
+vector<Item> Driveway::getItems(){
+    return Items;
+}
+
+

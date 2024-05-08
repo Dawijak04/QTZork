@@ -33,3 +33,4 @@ void Room::goLeft(){
 void Room::goRight(){
      cout<<"going right"<<endl;
 }
+

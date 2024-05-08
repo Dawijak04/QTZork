@@ -13,10 +13,13 @@ public:
     void goDown() override;
     void goLeft() override;
     void goRight() override;
+    void createItems() override;
+    vector<Item> getItems() override;
 private:
     Pool();
     static MainWindow* mainWindowPtr;
     static Pool* instance;
+    static vector<Item> Items;
 };
 
 #endif // POOL_H

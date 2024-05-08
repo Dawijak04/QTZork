@@ -20,6 +20,7 @@ public:
     ~MainWindow();
 
     void startScreen();
+
     void setDriveway();
     void setHall();
     void setKitchen();
@@ -31,6 +32,19 @@ public:
     void setGarden();
     void setPool();
 
+    void initializeItems();
+    void hideItems();
+    void showItemsDriveway();
+    void showItemsHall();
+    void showItemsDiningroom();
+    void showItemsKitchen();
+    void showItemsLivingroom();
+    void showItemsBedroom();
+    void showItemsBathroom1();
+    void showItemsBathroom2();
+    void showItemsGarden();
+    void showItemsPool();
+
 
 
 private slots:
@@ -41,18 +55,10 @@ private slots:
     void modifyButtonVisibility(bool isVisible);
     void modifyButtonAvailability(bool isEnabled);
 
-
-
-
-
     void on_upButton_clicked();
-
     void on_downButton_clicked();
-
     void on_leftButton_clicked();
-
     void on_rightButton_clicked();
-
     void on_mapButton_clicked();
 
 private:

@@ -5,6 +5,7 @@ using namespace std;
 
 Diningroom* Diningroom::instance = nullptr;
 MainWindow* Diningroom::mainWindowPtr = nullptr;
+vector<Item> Diningroom::Items;
 
 Diningroom& Diningroom::getInstance(){
     if(!instance){
@@ -39,4 +40,11 @@ void Diningroom::goLeft(){
 }
 void Diningroom::goRight(){
     cout<<"invalid"<<endl;
+}
+
+void Diningroom::createItems(){
+}
+
+vector<Item> Diningroom::getItems(){
+    return Items;
 }

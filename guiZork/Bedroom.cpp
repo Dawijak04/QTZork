@@ -5,6 +5,7 @@ using namespace std;
 
 Bedroom* Bedroom::instance = nullptr;
 MainWindow* Bedroom::mainWindowPtr = nullptr;
+vector<Item> Bedroom::Items;
 
 Bedroom& Bedroom::getInstance(){
     if(!instance){
@@ -33,4 +34,11 @@ void Bedroom::goLeft(){
 }
 void Bedroom::goRight(){
     mainWindowPtr->setLivingRoom();
+}
+
+void Bedroom::createItems(){
+}
+
+vector<Item> Bedroom::getItems(){
+    return Items;
 }

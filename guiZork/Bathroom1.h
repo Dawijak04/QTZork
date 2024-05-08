@@ -14,10 +14,13 @@ public:
     void goDown() override;
     void goLeft() override;
     void goRight() override;
+    void createItems() override;
+    vector<Item> getItems() override;
 private:
     static MainWindow* mainWindowPtr;
     Bathroom1();
     static Bathroom1* instance;
+    static vector<Item> Items;
 };
 
 #endif // BATHROOM1_H

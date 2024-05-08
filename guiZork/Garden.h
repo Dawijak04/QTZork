@@ -14,10 +14,13 @@ public:
     void goDown() override;
     void goLeft() override;
     void goRight() override;
+    void createItems() override;
+    vector<Item> getItems() override;
 private:
     Garden();
     static MainWindow* mainWindowPtr;
     static Garden* instance;
+    static vector<Item> Items;
 };
 
 #endif // GARDEN_H

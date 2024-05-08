@@ -7,6 +7,7 @@ using namespace std;
 
 Hall* Hall::instance = nullptr;
 MainWindow* Hall::mainWindowPtr = nullptr;
+vector<Item> Hall::Items;
 
 Hall& Hall::getInstance(){
     if(!instance){
@@ -24,7 +25,7 @@ void Hall::setMainWindow(MainWindow* mainWindow){
 }
 
 void Hall::setRoom() const{
-    cout<<"setting room to hall" << endl;
+    //cout<<"setting room to hall" << endl;
     mainWindowPtr->setHall();
 }
 
@@ -34,7 +35,7 @@ void Hall::goDown(){
 }
 
 void Hall::goUp(){
-    cout<<"up from hall"<<endl;
+    //cout<<"up from hall"<<endl;
     mainWindowPtr->setLivingRoom();
     //Player::getInstance().setRoom(&Livingroom::getInstance());
 
@@ -45,4 +46,13 @@ void Hall::goLeft(){
 }
 void Hall::goRight(){
     mainWindowPtr->setKitchen();
+}
+
+void Hall::createItems(){
+    Item cash = Item("Cash", 10, "D:/Downloads/ZorkImages/Cash.png", 1);
+    Items.push_back(cash);
+}
+
+vector<Item> Hall::getItems(){
+    return Items;
 }

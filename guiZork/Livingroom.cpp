@@ -8,6 +8,7 @@ using namespace std;
 
 Livingroom* Livingroom::instance = nullptr;
 MainWindow* Livingroom::mainWindowPtr = nullptr;
+vector<Item> Livingroom::Items;
 
 Livingroom& Livingroom::getInstance(){
     if(!instance){
@@ -49,4 +50,15 @@ void Livingroom::goRight(){
 }
 
 
+void Livingroom::createItems(){
+    Item gold = Item("Gold", 15, "D:/Downloads/ZorkImages/Gold.png", 1);
+    Items.push_back(gold);
+
+    Item cash = Item("Cash", 10, "D:/Downloads/ZorkImages/Cash.png", 1);
+    Items.push_back(cash);
+}
+
+vector<Item> Livingroom::getItems(){
+    return Items;
+}
 

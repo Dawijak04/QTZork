@@ -2,6 +2,7 @@
 #define LIVINGROOM_H
 #include "Room.h"
 #include "mainwindow.h"
+#include "Item.h"
 
 class Livingroom : public Room
 {
@@ -13,12 +14,15 @@ public:
     void goDown()override;
     void goLeft()override;
     void goRight()override;
+    void createItems() override;
+    vector<Item> getItems() override;
 
 
 private:
     Livingroom();
     static MainWindow* mainWindowPtr;
     static Livingroom* instance;
+    static vector<Item> Items;
 };
 
 #endif // LIVINGROOM_H

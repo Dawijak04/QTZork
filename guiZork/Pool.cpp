@@ -3,6 +3,7 @@
 
 Pool* Pool::instance = nullptr;
 MainWindow* Pool::mainWindowPtr = nullptr;
+vector<Item> Pool::Items;
 
 Pool& Pool::getInstance(){
     if(!instance){
@@ -30,4 +31,11 @@ void Pool::goLeft(){
 }
 void Pool::goRight(){
     mainWindowPtr->setGarden();
+}
+
+void Pool::createItems(){
+}
+
+vector<Item> Pool::getItems(){
+    return Items;
 }

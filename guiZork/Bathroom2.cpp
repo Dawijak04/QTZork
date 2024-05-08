@@ -3,6 +3,7 @@
 
 Bathroom2* Bathroom2::instance = nullptr;
 MainWindow* Bathroom2::mainWindowPtr = nullptr;
+vector<Item> Bathroom2::Items;
 
 Bathroom2& Bathroom2::getInstance(){
     if(!instance){
@@ -30,4 +31,11 @@ void Bathroom2::goUp(){
 void Bathroom2::goLeft(){
 }
 void Bathroom2::goRight(){
+}
+
+void Bathroom2::createItems(){
+}
+
+vector<Item> Bathroom2::getItems(){
+    return Items;
 }

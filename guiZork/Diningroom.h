@@ -14,11 +14,14 @@ public:
     void goDown() override;
     void goLeft() override;
     void goRight() override;
+    void createItems() override;
+    vector<Item> getItems() override;
 
 private:
     static MainWindow* mainWindowPtr;
     Diningroom();
     static Diningroom* instance;
+    static vector<Item> Items;
 };
 
 #endif // DININGROOM_H

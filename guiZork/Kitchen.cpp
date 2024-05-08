@@ -5,6 +5,7 @@ using namespace std;
 
 Kitchen* Kitchen::instance = nullptr;
 MainWindow* Kitchen::mainWindowPtr = nullptr;
+vector<Item> Kitchen::Items;
 
 Kitchen& Kitchen::getInstance(){
     if(!instance){
@@ -39,6 +40,15 @@ void Kitchen::goLeft(){
 }
 void Kitchen::goRight(){
     cout<<"invalid"<<endl;
+}
+
+void Kitchen::createItems(){
+    Item keys = Item("Car Keys", 0, "D:/Downloads/ZorkImages/Keys.png", 1);
+    Items.push_back(keys);
+}
+
+vector<Item> Kitchen::getItems(){
+    return Items;
 }
 
 

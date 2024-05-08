@@ -23,15 +23,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(guiZork
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        Room.h
-        Hall.h
-        Player.h
-        Player.cpp
-        Room.cpp
-        Hall.h
-        Hall.cpp
-        Driveway.h
-        Driveway.cpp
+        Room.h Room.cpp
+        Player.h Player.cpp
+        Hall.h Hall.cpp
+        Driveway.h Driveway.cpp
         Livingroom.h Livingroom.cpp
         Kitchen.h Kitchen.cpp
         Diningroom.h Diningroom.cpp
@@ -40,6 +35,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Pool.h Pool.cpp
         Bedroom.h Bedroom.cpp
         Bathroom2.h Bathroom2.cpp
+        Constants.h Constants.cpp
+        Item.h Item.cpp
+
+
+
 
 
 

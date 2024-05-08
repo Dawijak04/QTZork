@@ -5,6 +5,7 @@ using namespace std;
 
 Bathroom1* Bathroom1::instance = nullptr;
 MainWindow* Bathroom1::mainWindowPtr = nullptr;
+vector<Item> Bathroom1::Items;
 
 Bathroom1& Bathroom1::getInstance(){
     if(!instance){
@@ -33,3 +34,11 @@ void Bathroom1::goLeft(){
 }
 void Bathroom1::goRight(){
 }
+
+void Bathroom1::createItems(){
+}
+
+vector<Item> Bathroom1::getItems(){
+    return Items;
+}
+
