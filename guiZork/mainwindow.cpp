@@ -110,12 +110,14 @@ void MainWindow::setHall(){
 void MainWindow::setKitchen(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/kitchen.png");
     hideItems();
+    showItemsKitchen();
     Player::getInstance().setRoom(&Kitchen::getInstance());
 }
 
 void MainWindow::setDiningRoom(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/diningRoom.webp");
     hideItems();
+    showItemsDiningroom();
     Player::getInstance().setRoom(&Diningroom::getInstance());
 }
 
@@ -129,30 +131,35 @@ void MainWindow::setLivingRoom(){
 void MainWindow::setBathroom1(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/bathroom1.webp");
     hideItems();
+    showItemsBathroom1();
     Player::getInstance().setRoom(&Bathroom1::getInstance());
 }
 
 void MainWindow::setGarden(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/garden.webp");
     hideItems();
+    showItemsGarden();
     Player::getInstance().setRoom(&Garden::getInstance());
 }
 
 void MainWindow::setBedroom(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/bedroom.jpg");
     hideItems();
+    showItemsBedroom();
     Player::getInstance().setRoom(&Bedroom::getInstance());
 }
 
 void MainWindow::setPool(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/pool.jpg");
     hideItems();
+    showItemsPool();
     Player::getInstance().setRoom(&Pool::getInstance());
 }
 
 void MainWindow::setBathroom2(){
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/bathroom2.jpg");
     hideItems();
+    showItemsBathroom2();
     Player::getInstance().setRoom(&Bathroom2::getInstance());
 }
 
@@ -191,6 +198,7 @@ void MainWindow::on_startButton_clicked(){
     Pool::getInstance().setMainWindow(this);
     Bedroom::getInstance().setMainWindow(this);
     Bathroom2::getInstance().setMainWindow(this);
+
     initializeItems();
 
     modifyButtonVisibility(true);
@@ -216,9 +224,16 @@ void MainWindow::initializeItems(){
     setImageLabel(ui->ItemLivingroom1, QString::fromStdString(Livingroom::getInstance().getItems().at(0).getPath()));
     setImageLabel(ui->ItemLivingroom2, QString::fromStdString(Livingroom::getInstance().getItems().at(1).getPath()));
 
+    //Kitchen Items
+    Kitchen::getInstance().createItems();
+    setImageLabel(ui->ItemKitchen1, QString::fromStdString(Kitchen::getInstance().getItems().at(0).getPath()));
+
+    //Bathroom1 Items
+    Bathroom1::getInstance().createItems();
+    setImageLabel(ui->ItemBathroom1, QString::fromStdString(Bathroom1::getInstance().getItems().at(0).getPath()));
 
 
-    hideItems();
+
 
 }
 
@@ -227,21 +242,20 @@ void MainWindow::hideItems(){
     ui->ItemHall1->hide();
     ui->ItemLivingroom1->hide();
     ui->ItemLivingroom2->hide();
+    ui->ItemKitchen1->hide();
+    ui->ItemBathroom1->hide();
 
 }
 
 void MainWindow::showItemsDriveway(){
-    hideItems();
     ui->ItemDriveway1->show();
 }
 
 void MainWindow::showItemsHall(){
-    hideItems();
     ui->ItemHall1->show();
 }
 
 void MainWindow::showItemsLivingroom(){
-    hideItems();
     ui->ItemLivingroom1->show();
     ui->ItemLivingroom2->show();
 }
@@ -251,6 +265,7 @@ void MainWindow::showItemsDiningroom(){
 
 }
 void MainWindow::showItemsKitchen(){
+    ui->ItemKitchen1->show();
 
 }
 
@@ -258,7 +273,7 @@ void MainWindow::showItemsBedroom(){
 
 }
 void MainWindow::showItemsBathroom1(){
-
+    ui->ItemBathroom1->show();
 }
 void MainWindow::showItemsBathroom2(){
 

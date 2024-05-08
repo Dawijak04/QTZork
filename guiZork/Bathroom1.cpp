@@ -36,6 +36,8 @@ void Bathroom1::goRight(){
 }
 
 void Bathroom1::createItems(){
+    Item gold = Item("Gold", 0, "D:/Downloads/ZorkImages/Gold.png", 1);
+    Items.push_back(gold);
 }
 
 vector<Item> Bathroom1::getItems(){
