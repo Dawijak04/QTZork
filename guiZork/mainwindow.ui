@@ -99,7 +99,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-10</y>
+      <y>0</y>
       <width>941</width>
       <height>721</height>
      </rect>
@@ -108,37 +108,37 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="ItemDriveway1">
+   <widget class="QPushButton" name="ItemHall1">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>230</y>
-      <width>481</width>
-      <height>231</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="ItemHall1">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
+      <x>130</x>
       <y>540</y>
-      <width>71</width>
-      <height>51</height>
+      <width>81</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="ItemLivingroom1">
+   <widget class="QPushButton" name="ItemBathroom11">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>490</y>
+      <x>240</x>
+      <y>591</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ItemBathroom21">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>421</y>
       <width>61</width>
       <height>31</height>
      </rect>
@@ -147,24 +147,24 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="ItemLivingroom2">
+   <widget class="QPushButton" name="ItemBedroom1">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>610</y>
-      <width>81</width>
-      <height>41</height>
+      <x>130</x>
+      <y>481</y>
+      <width>71</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="ItemKitchen1">
+   <widget class="QPushButton" name="ItemBedroom2">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>370</y>
+      <x>879</x>
+      <y>521</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -173,12 +173,38 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="ItemBathroom1">
+   <widget class="QPushButton" name="ItemDiningroom1">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>590</y>
-      <width>71</width>
+      <x>629</x>
+      <y>431</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ItemDriveway1">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>231</y>
+      <width>491</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ItemGarden1">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>341</y>
+      <width>61</width>
       <height>41</height>
      </rect>
     </property>
@@ -186,19 +212,231 @@
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="ItemGarden2">
+    <property name="geometry">
+     <rect>
+      <x>779</x>
+      <y>571</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ItemKitchen1">
+    <property name="geometry">
+     <rect>
+      <x>129</x>
+      <y>371</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ItemLivingroom1">
+    <property name="geometry">
+     <rect>
+      <x>589</x>
+      <y>491</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ItemLivingroom2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>611</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ItemPool1">
+    <property name="geometry">
+     <rect>
+      <x>39</x>
+      <y>431</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventorySlot1">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>670</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventorySlot2">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>670</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventorySlot3">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>670</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventorySlot4">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>670</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventorySlot5">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>670</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventorySpace1">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>670</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventorySpace2">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>670</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventorySpace3">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>670</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventorySpace4">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>670</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventorySpace5">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>670</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>label_background</zorder>
+   <zorder>ItemDriveway1</zorder>
    <zorder>startButton</zorder>
    <zorder>upButton</zorder>
    <zorder>mapButton</zorder>
    <zorder>rightButton</zorder>
    <zorder>downButton</zorder>
    <zorder>leftButton</zorder>
-   <zorder>ItemDriveway1</zorder>
    <zorder>ItemHall1</zorder>
+   <zorder>ItemBathroom11</zorder>
+   <zorder>ItemBathroom21</zorder>
+   <zorder>ItemBedroom1</zorder>
+   <zorder>ItemBedroom2</zorder>
+   <zorder>ItemDiningroom1</zorder>
+   <zorder>ItemGarden1</zorder>
+   <zorder>ItemGarden2</zorder>
+   <zorder>ItemKitchen1</zorder>
    <zorder>ItemLivingroom1</zorder>
    <zorder>ItemLivingroom2</zorder>
-   <zorder>ItemKitchen1</zorder>
-   <zorder>ItemBathroom1</zorder>
+   <zorder>ItemPool1</zorder>
+   <zorder>InventorySlot1</zorder>
+   <zorder>InventorySlot2</zorder>
+   <zorder>InventorySlot3</zorder>
+   <zorder>InventorySlot4</zorder>
+   <zorder>InventorySlot5</zorder>
+   <zorder>InventorySpace1</zorder>
+   <zorder>InventorySpace2</zorder>
+   <zorder>InventorySpace3</zorder>
+   <zorder>InventorySpace4</zorder>
+   <zorder>InventorySpace5</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

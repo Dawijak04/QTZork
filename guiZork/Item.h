@@ -1,6 +1,6 @@
 #ifndef ITEM_H
 #define ITEM_H
-#include <iostream>
+#include <string>
 using namespace std;
 
 class Item
@@ -8,7 +8,7 @@ class Item
 public:
     Item(string name, int value, string path, bool exists);
     string getName();
-    int getValue();
+    int getValue() const;
     string getPath();
     bool getExists();
     void setExists(bool exists);

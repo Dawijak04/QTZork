@@ -11,7 +11,7 @@ Item::Item(string name, int value, string path, bool exists) {
 string Item::getName(){
     return Item::name;
 }
-int Item::getValue(){
+int Item::getValue() const{
     return Item::value;
 }
 string Item::getPath(){

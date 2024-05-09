@@ -43,6 +43,8 @@ void Diningroom::goRight(){
 }
 
 void Diningroom::createItems(){
+    Item cash = Item("Cash", 10, "D:/Downloads/ZorkImages/Cash.png", 1);
+    Items.push_back(cash);
 }
 
 vector<Item> Diningroom::getItems(){

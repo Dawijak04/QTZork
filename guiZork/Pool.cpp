@@ -34,6 +34,8 @@ void Pool::goRight(){
 }
 
 void Pool::createItems(){
+    Item diamond = Item("Diamond", 20, "D:/Downloads/ZorkImages/Diamond.png", 1);
+    Items.push_back(diamond);
 }
 
 vector<Item> Pool::getItems(){

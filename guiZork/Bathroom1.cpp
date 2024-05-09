@@ -36,7 +36,7 @@ void Bathroom1::goRight(){
 }
 
 void Bathroom1::createItems(){
-    Item gold = Item("Gold", 0, "D:/Downloads/ZorkImages/Gold.png", 1);
+    Item gold = Item("Gold", 15, "D:/Downloads/ZorkImages/Gold.png", 1);
     Items.push_back(gold);
 }
 

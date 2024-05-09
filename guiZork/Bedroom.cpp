@@ -37,6 +37,11 @@ void Bedroom::goRight(){
 }
 
 void Bedroom::createItems(){
+    Item diamond = Item("Diamond", 20, "D:/Downloads/ZorkImages/Diamond.png", 1);
+    Items.push_back(diamond);
+    Item cash = Item("Cash", 10, "D:/Downloads/ZorkImages/Gold.png", 1);
+    Items.push_back(cash);
+
 }
 
 vector<Item> Bedroom::getItems(){

@@ -36,6 +36,10 @@ void Garden::goRight(){
 }
 
 void Garden::createItems(){
+    Item cash = Item("Cash", 10, "D:/Downloads/ZorkImages/Cash.png", 1);
+    Items.push_back(cash);
+    Item gold = Item("Gold", 15, "D:/Downloads/ZorkImages/Gold.png", 1);
+    Items.push_back(gold);
 }
 
 vector<Item> Garden::getItems(){

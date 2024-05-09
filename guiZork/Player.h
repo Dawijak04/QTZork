@@ -9,14 +9,20 @@ private:
     Room* currentRoom;///////////////////&
     static Player* instance;
     Player();
+    static vector<Item> Inventory;
+    static bool hasCarKeys;
 
 
 public:
     static Player& getInstance();
     Room* getRoom();////////////////&
     void setRoom(Room* room);
-    int getItems();
-    void setItems(int number);
+    void addItem(Item item);
+    int getInventorySize();
+    int getInventoryValue();
+    bool getHasCarKeys();
+    void setHasCarKeys(bool keys);
+
 
 
 

@@ -20,12 +20,15 @@
 
 using namespace std;
 
+QList<QLabel*> inventorySlots ;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    inventorySlots = { ui->InventorySlot1, ui->InventorySlot2, ui->InventorySlot3, ui->InventorySlot4, ui->InventorySlot5 };
+    inventorySpaces = {ui->InventorySpace1, ui->InventorySpace2, ui->InventorySpace3, ui->InventorySpace4, ui->InventorySpace5};
 }
 
 MainWindow::~MainWindow()
@@ -79,6 +82,8 @@ void MainWindow::setImageButton(QPushButton* button, const QString& imagePath) {
 
     button->setIcon(QIcon(icon));
     button->setIconSize(buttonSize);
+
+    button->setStyleSheet("background-color: transparent; border: none;");
 }
 
 
@@ -87,6 +92,8 @@ void MainWindow::startScreen(){
     //setBackground("D:/Downloads/ZorkImages/start.jpeg");
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/start.jpeg");
     setImageButton(ui->startButton, "D:/Downloads/ZorkImages/start.png");
+    hideItems();
+    createInventory();
     ui->startButton->setEnabled(true);
     modifyButtonVisibility(false);
 
@@ -174,6 +181,12 @@ void MainWindow::modifyButtonVisibility(bool isVisible) {
     ui->downButton->setVisible(isVisible);
     ui->upButton->setVisible(isVisible);
     ui->mapButton->setVisible(isVisible);
+
+    ui->InventorySlot1->setVisible(isVisible);
+    ui->InventorySlot2->setVisible(isVisible);
+    ui->InventorySlot3->setVisible(isVisible);
+    ui->InventorySlot4->setVisible(isVisible);
+    ui->InventorySlot5->setVisible(isVisible);
 }
 
 void MainWindow::modifyButtonAvailability(bool isEnabled) {
@@ -184,8 +197,46 @@ void MainWindow::modifyButtonAvailability(bool isEnabled) {
     ui->mapButton->setEnabled(isEnabled);
 }
 
+void MainWindow::collectItem(QPushButton* button, Item item){
+    if(Player::getInstance().getInventorySize() < 5){
+        button->setEnabled(false);
+        setImageButton(button, "D:/Downloads/ZorkImages/Empty.png");
+        cout<<"Collected Item: " + item.getName()<<endl;
 
 
+
+        Item ItemCopy = Item(item.getName(), item.getValue(),item.getPath(), item.getExists());
+        Player::getInstance().addItem(ItemCopy);
+        addToInventory(ItemCopy);
+    }else{
+        cout<<"Full inventory"<<endl;
+    }
+}
+
+bool MainWindow::isLabelDisplayingImage(const QLabel* label) {
+    if (label) {
+        const QPixmap pixmap = label->pixmap().copy(); // Copy the pixmap
+        return !pixmap.isNull();
+    }
+    return false;
+}
+
+
+
+void MainWindow::createInventory(){
+    for (QLabel* label : inventorySlots) {
+        setImageLabel(label, "D:/Downloads/ZorkImages/slot.webp");
+    }
+}
+void MainWindow::addToInventory(Item item){
+    for (QLabel* label : inventorySpaces) {
+        if (!isLabelDisplayingImage(label)) {
+            setImageLabel(label, QString::fromStdString(item.getPath()));
+            //Player::getInstance().addItem(item);
+            break;
+        }
+    }
+}
 
 void MainWindow::on_startButton_clicked(){
     Driveway::getInstance().setMainWindow(this);
@@ -213,26 +264,46 @@ void MainWindow::on_startButton_clicked(){
 void MainWindow::initializeItems(){
     //Driveway Items
     Driveway::getInstance().createItems();
-    setImageLabel(ui->ItemDriveway1, QString::fromStdString(Driveway::getInstance().getItems().at(0).getPath()));
+    setImageButton(ui->ItemDriveway1, QString::fromStdString(Driveway::getInstance().getItems().at(0).getPath()));
 
     //Hall Items
     Hall::getInstance().createItems();
-    setImageLabel(ui->ItemHall1, QString::fromStdString(Hall::getInstance().getItems().at(0).getPath()));
+    setImageButton(ui->ItemHall1, QString::fromStdString(Hall::getInstance().getItems().at(0).getPath()));
 
     //Living Room Items
     Livingroom::getInstance().createItems();
-    setImageLabel(ui->ItemLivingroom1, QString::fromStdString(Livingroom::getInstance().getItems().at(0).getPath()));
-    setImageLabel(ui->ItemLivingroom2, QString::fromStdString(Livingroom::getInstance().getItems().at(1).getPath()));
+    setImageButton(ui->ItemLivingroom1, QString::fromStdString(Livingroom::getInstance().getItems().at(0).getPath()));
+    setImageButton(ui->ItemLivingroom2, QString::fromStdString(Livingroom::getInstance().getItems().at(1).getPath()));
 
     //Kitchen Items
     Kitchen::getInstance().createItems();
-    setImageLabel(ui->ItemKitchen1, QString::fromStdString(Kitchen::getInstance().getItems().at(0).getPath()));
+    setImageButton(ui->ItemKitchen1, QString::fromStdString(Kitchen::getInstance().getItems().at(0).getPath()));
 
     //Bathroom1 Items
     Bathroom1::getInstance().createItems();
-    setImageLabel(ui->ItemBathroom1, QString::fromStdString(Bathroom1::getInstance().getItems().at(0).getPath()));
+    setImageButton(ui->ItemBathroom11, QString::fromStdString(Bathroom1::getInstance().getItems().at(0).getPath()));
 
+    //Bedroom Items
+    Bedroom::getInstance().createItems();
+    setImageButton(ui->ItemBedroom1, QString::fromStdString(Bedroom::getInstance().getItems().at(0).getPath()));
+    setImageButton(ui->ItemBedroom2, QString::fromStdString(Bedroom::getInstance().getItems().at(1).getPath()));
 
+    //Dining Room Items
+    Diningroom::getInstance().createItems();
+    setImageButton(ui->ItemDiningroom1, QString::fromStdString(Diningroom::getInstance().getItems().at(0).getPath()));
+
+    //Bathroom2 Items
+    Bathroom2::getInstance().createItems();
+    setImageButton(ui->ItemBathroom21, QString::fromStdString(Bathroom2::getInstance().getItems().at(0).getPath()));
+
+    //Garden Items
+    Garden::getInstance().createItems();
+    setImageButton(ui->ItemGarden1, QString::fromStdString(Garden::getInstance().getItems().at(1).getPath()));
+    setImageButton(ui->ItemGarden2, QString::fromStdString(Garden::getInstance().getItems().at(0).getPath()));
+
+    //Pool Items
+    Pool::getInstance().createItems();
+    setImageButton(ui->ItemPool1, QString::fromStdString(Pool::getInstance().getItems().at(0).getPath()));
 
 
 }
@@ -243,7 +314,14 @@ void MainWindow::hideItems(){
     ui->ItemLivingroom1->hide();
     ui->ItemLivingroom2->hide();
     ui->ItemKitchen1->hide();
-    ui->ItemBathroom1->hide();
+    ui->ItemBathroom11->hide();
+    ui->ItemBedroom1->hide();
+    ui->ItemBedroom2->hide();
+    ui->ItemDiningroom1->hide();
+    ui->ItemBathroom21->hide();
+    ui->ItemGarden1->hide();
+    ui->ItemGarden2->hide();
+    ui->ItemPool1->hide();
 
 }
 
@@ -262,6 +340,7 @@ void MainWindow::showItemsLivingroom(){
 
 
 void MainWindow::showItemsDiningroom(){
+    ui->ItemDiningroom1->show();
 
 }
 void MainWindow::showItemsKitchen(){
@@ -270,19 +349,21 @@ void MainWindow::showItemsKitchen(){
 }
 
 void MainWindow::showItemsBedroom(){
-
+    ui->ItemBedroom1->show();
+    ui->ItemBedroom2->show();
 }
 void MainWindow::showItemsBathroom1(){
-    ui->ItemBathroom1->show();
+    ui->ItemBathroom11->show();
 }
 void MainWindow::showItemsBathroom2(){
-
+    ui->ItemBathroom21->show();
 }
 void MainWindow::showItemsGarden(){
-
+    ui->ItemGarden1->show();
+    ui->ItemGarden2->show();
 }
 void MainWindow::showItemsPool(){
-
+    ui->ItemPool1->show();
 }
 
 
@@ -323,5 +404,82 @@ void MainWindow::on_rightButton_clicked()
 void MainWindow::on_mapButton_clicked()
 {
     cout<<"SHOW MAP"<<endl;
+}
+
+
+
+
+
+//Collecting items
+void MainWindow::on_ItemHall1_clicked()
+{
+    collectItem(ui->ItemHall1, Hall::getInstance().getItems().at(0));
+
+}
+
+
+void MainWindow::on_ItemBathroom11_clicked()
+{
+    collectItem(ui->ItemBathroom11, Bathroom1::getInstance().getItems().at(0));
+}
+
+
+void MainWindow::on_ItemBathroom21_clicked()
+{
+    collectItem(ui->ItemBathroom21, Bathroom2::getInstance().getItems().at(0));
+}
+
+
+void MainWindow::on_ItemBedroom1_clicked()
+{
+    collectItem(ui->ItemBedroom1, Bedroom::getInstance().getItems().at(0));
+}
+
+
+void MainWindow::on_ItemBedroom2_clicked()
+{
+    collectItem(ui->ItemBedroom2, Bedroom::getInstance().getItems().at(1));
+}
+
+
+void MainWindow::on_ItemDiningroom1_clicked()
+{
+    collectItem(ui->ItemDiningroom1, Diningroom::getInstance().getItems().at(0));
+}
+
+
+void MainWindow::on_ItemGarden1_clicked()
+{
+    collectItem(ui->ItemGarden1, Garden::getInstance().getItems().at(1));
+}
+
+
+void MainWindow::on_ItemGarden2_clicked()
+{
+    collectItem(ui->ItemGarden2, Garden::getInstance().getItems().at(0));
+}
+
+
+void MainWindow::on_ItemKitchen1_clicked()
+{
+    collectItem(ui->ItemKitchen1, Kitchen::getInstance().getItems().at(0));
+}
+
+
+void MainWindow::on_ItemLivingroom1_clicked()
+{
+    collectItem(ui->ItemLivingroom1, Livingroom::getInstance().getItems().at(0));
+}
+
+
+void MainWindow::on_ItemLivingroom2_clicked()
+{
+    collectItem(ui->ItemLivingroom2, Livingroom::getInstance().getItems().at(1));
+}
+
+
+void MainWindow::on_ItemPool1_clicked()
+{
+    collectItem(ui->ItemPool1, Pool::getInstance().getItems().at(0));
 }
 

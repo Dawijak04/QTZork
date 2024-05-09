@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QLabel>
 #include <QPushButton>
+#include "Item.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -44,6 +45,7 @@ public:
     void showItemsBathroom2();
     void showItemsGarden();
     void showItemsPool();
+    bool isLabelDisplayingImage(const QLabel* label);
 
 
 
@@ -54,6 +56,12 @@ private slots:
     void on_startButton_clicked();
     void modifyButtonVisibility(bool isVisible);
     void modifyButtonAvailability(bool isEnabled);
+    void collectItem(QPushButton* button, Item item);
+    void createInventory();
+    void addToInventory(Item item);
+
+
+
 
     void on_upButton_clicked();
     void on_downButton_clicked();
@@ -61,7 +69,33 @@ private slots:
     void on_rightButton_clicked();
     void on_mapButton_clicked();
 
+    void on_ItemHall1_clicked();
+
+    void on_ItemBathroom11_clicked();
+
+    void on_ItemBathroom21_clicked();
+
+    void on_ItemBedroom1_clicked();
+
+    void on_ItemBedroom2_clicked();
+
+    void on_ItemDiningroom1_clicked();
+
+    void on_ItemGarden1_clicked();
+
+    void on_ItemGarden2_clicked();
+
+    void on_ItemKitchen1_clicked();
+
+    void on_ItemLivingroom1_clicked();
+
+    void on_ItemLivingroom2_clicked();
+
+    void on_ItemPool1_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QList<QLabel*> inventorySlots;
+    QList<QLabel*> inventorySpaces;
 };
 #endif // MAINWINDOW_H

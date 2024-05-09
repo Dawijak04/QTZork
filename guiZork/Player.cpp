@@ -1,8 +1,9 @@
 #include "Player.h"
 #include <iostream>
 Player* Player::instance = nullptr;
-
+vector<Item> Player::Inventory;
 Player::Player() : currentRoom(nullptr), items(0) {}
+bool Player::hasCarKeys;
 
 Player& Player::getInstance(){
     if(!instance){
@@ -20,12 +21,30 @@ void Player::setRoom(Room* r){
     std::cout<<"set current room (player)" << endl;
     std::cout<<currentRoom->getName() << endl;
 };
-int Player::getItems(){
-    return items;
-};
-void Player::setItems(int number){
-    items = number;
-};
+
+void Player::addItem(Item item){
+    Inventory.push_back(item);
+}
+
+int Player::getInventorySize(){
+    return Inventory.size();
+}
+
+int Player::getInventoryValue(){
+    int totalValue = 0;
+    for (const Item& item : Inventory) {
+        totalValue += item.getValue();
+    }
+    return totalValue;
+}
+
+bool Player::getHasCarKeys(){
+    return hasCarKeys;
+}
+void Player::setHasCarKeys(bool keys){
+    hasCarKeys = keys;
+}
+
 
 
 
