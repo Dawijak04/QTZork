@@ -37,6 +37,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Bathroom2.h Bathroom2.cpp
         Constants.h Constants.cpp
         Item.h Item.cpp
+        Escaperoute.h Escaperoute.cpp
+        dialog.h dialog.cpp dialog.ui
+
 
 
 

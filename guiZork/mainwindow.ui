@@ -407,6 +407,32 @@
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="valueLabel">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>660</y>
+      <width>191</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventoryValue">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>674</y>
+      <width>131</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>label_background</zorder>
    <zorder>ItemDriveway1</zorder>
    <zorder>startButton</zorder>
@@ -437,6 +463,8 @@
    <zorder>InventorySpace3</zorder>
    <zorder>InventorySpace4</zorder>
    <zorder>InventorySpace5</zorder>
+   <zorder>valueLabel</zorder>
+   <zorder>InventoryValue</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

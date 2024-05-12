@@ -46,6 +46,7 @@ public:
     void showItemsGarden();
     void showItemsPool();
     bool isLabelDisplayingImage(const QLabel* label);
+    void showPopUp();
 
 
 

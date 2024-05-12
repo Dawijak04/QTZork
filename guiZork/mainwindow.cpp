@@ -6,6 +6,7 @@
 #include <QPixmap>
 #include <iostream>
 #include "Player.h"
+#include "dialog.h"
 
 #include "Driveway.h"
 #include "Hall.h"
@@ -89,7 +90,6 @@ void MainWindow::setImageButton(QPushButton* button, const QString& imagePath) {
 
 
 void MainWindow::startScreen(){
-    //setBackground("D:/Downloads/ZorkImages/start.jpeg");
     setImageLabel(ui->label_background, "D:/Downloads/ZorkImages/start.jpeg");
     setImageButton(ui->startButton, "D:/Downloads/ZorkImages/start.png");
     hideItems();
@@ -187,6 +187,8 @@ void MainWindow::modifyButtonVisibility(bool isVisible) {
     ui->InventorySlot3->setVisible(isVisible);
     ui->InventorySlot4->setVisible(isVisible);
     ui->InventorySlot5->setVisible(isVisible);
+
+    ui->valueLabel->setVisible(isVisible);
 }
 
 void MainWindow::modifyButtonAvailability(bool isEnabled) {
@@ -203,11 +205,12 @@ void MainWindow::collectItem(QPushButton* button, Item item){
         setImageButton(button, "D:/Downloads/ZorkImages/Empty.png");
         cout<<"Collected Item: " + item.getName()<<endl;
 
-
-
         Item ItemCopy = Item(item.getName(), item.getValue(),item.getPath(), item.getExists());
         Player::getInstance().addItem(ItemCopy);
         addToInventory(ItemCopy);
+        cout<<"Inventory value: " << Player::getInstance().getInventoryValue()<<endl;
+        ui->InventoryValue->setText(QString::number(Player::getInstance().getInventoryValue()));
+
     }else{
         cout<<"Full inventory"<<endl;
     }
@@ -227,15 +230,21 @@ void MainWindow::createInventory(){
     for (QLabel* label : inventorySlots) {
         setImageLabel(label, "D:/Downloads/ZorkImages/slot.webp");
     }
+    setImageLabel(ui->valueLabel, "D:/Downloads/ZorkImages/valueLabel.webp");
 }
 void MainWindow::addToInventory(Item item){
     for (QLabel* label : inventorySpaces) {
         if (!isLabelDisplayingImage(label)) {
             setImageLabel(label, QString::fromStdString(item.getPath()));
-            //Player::getInstance().addItem(item);
             break;
         }
     }
+}
+
+void MainWindow::showPopUp(){
+    Dialog popUp;
+    popUp.setModal(true);
+    popUp.exec();
 }
 
 void MainWindow::on_startButton_clicked(){
@@ -252,12 +261,19 @@ void MainWindow::on_startButton_clicked(){
 
     initializeItems();
 
+    ui->InventoryValue->setText(QString::number(Player::getInstance().getInventoryValue()));
+
+
+
     modifyButtonVisibility(true);
     modifyButtonAvailability(true);
     ui->startButton->hide();
 
     Player::getInstance().setRoom(&Driveway::getInstance());
     Player::getInstance().getRoom()->setRoom();
+    Player::getInstance().setHasCarKeys(0);
+
+    showPopUp();
 
 }
 
@@ -463,6 +479,7 @@ void MainWindow::on_ItemGarden2_clicked()
 void MainWindow::on_ItemKitchen1_clicked()
 {
     collectItem(ui->ItemKitchen1, Kitchen::getInstance().getItems().at(0));
+    Player::getInstance().setHasCarKeys(1);
 }
 
 
