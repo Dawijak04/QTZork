@@ -42,7 +42,7 @@ void Hall::goUp(){
 
 }
 void Hall::goLeft(){
-    cout<<"invalid"<<endl;
+    mainWindowPtr->invalidRoomError();
 }
 void Hall::goRight(){
     mainWindowPtr->setKitchen();

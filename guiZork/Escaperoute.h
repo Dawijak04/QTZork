@@ -6,7 +6,7 @@ class Escaperoute
 public:
     Escaperoute();
     bool checkEligibility();
-    void completeGame();
+    virtual bool completeGame();
 };
 
 #endif // ESCAPEROUTE_H

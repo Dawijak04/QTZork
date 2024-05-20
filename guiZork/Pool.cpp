@@ -24,10 +24,13 @@ void Pool::setRoom() const{
 }
 
 void Pool::goDown(){
+    mainWindowPtr->invalidRoomError();
 }
 void Pool::goUp(){
+    mainWindowPtr->invalidRoomError();
 }
 void Pool::goLeft(){
+    mainWindowPtr->invalidRoomError();
 }
 void Pool::goRight(){
     mainWindowPtr->setGarden();

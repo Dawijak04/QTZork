@@ -18,6 +18,18 @@
 #include "Garden.h"
 #include "Pool.h"
 #include "Bedroom.h"
+#include "Car.h"
+
+
+//#define DEBUG
+
+// Custom debug macro
+#ifdef DEBUG
+#define DEBUG_MSG(msg) \
+    std::cerr << "Debug: " << msg << std::endl;
+#else
+    #define DEBUG_MSG(msg)
+#endif
 
 using namespace std;
 
@@ -26,10 +38,12 @@ QList<QLabel*> inventorySlots ;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+
 {
     ui->setupUi(this);
-    inventorySlots = { ui->InventorySlot1, ui->InventorySlot2, ui->InventorySlot3, ui->InventorySlot4, ui->InventorySlot5 };
-    inventorySpaces = {ui->InventorySpace1, ui->InventorySpace2, ui->InventorySpace3, ui->InventorySpace4, ui->InventorySpace5};
+    inventorySlots = { ui->InventorySlot1, ui->InventorySlot2, ui->InventorySlot3, ui->InventorySlot4, ui->InventorySlot5, ui->InventorySlotKeys };
+    inventorySpaces = {ui->InventorySpace1, ui->InventorySpace2, ui->InventorySpace3, ui->InventorySpace4, ui->InventorySpace5, ui->InventorySpaceKeys};
+
 }
 
 MainWindow::~MainWindow()
@@ -96,6 +110,7 @@ void MainWindow::startScreen(){
     createInventory();
     ui->startButton->setEnabled(true);
     modifyButtonVisibility(false);
+    DEBUG_MSG("start screen initialized");
 
 }
 
@@ -105,6 +120,7 @@ void MainWindow::setDriveway(){
     hideItems();
     showItemsDriveway();
     Player::getInstance().setRoom(&Driveway::getInstance());
+    DEBUG_MSG("set driveway");
 }
 
 void MainWindow::setHall(){
@@ -112,6 +128,7 @@ void MainWindow::setHall(){
     hideItems();
     showItemsHall();
     Player::getInstance().setRoom(&Hall::getInstance());
+    DEBUG_MSG("set hall");
 }
 
 void MainWindow::setKitchen(){
@@ -119,6 +136,7 @@ void MainWindow::setKitchen(){
     hideItems();
     showItemsKitchen();
     Player::getInstance().setRoom(&Kitchen::getInstance());
+    DEBUG_MSG("set kitchen");
 }
 
 void MainWindow::setDiningRoom(){
@@ -126,6 +144,7 @@ void MainWindow::setDiningRoom(){
     hideItems();
     showItemsDiningroom();
     Player::getInstance().setRoom(&Diningroom::getInstance());
+    DEBUG_MSG("set dining room");
 }
 
 void MainWindow::setLivingRoom(){
@@ -133,6 +152,7 @@ void MainWindow::setLivingRoom(){
     hideItems();
     showItemsLivingroom();
     Player::getInstance().setRoom(&Livingroom::getInstance());
+    DEBUG_MSG("set living room");
 }
 
 void MainWindow::setBathroom1(){
@@ -140,6 +160,7 @@ void MainWindow::setBathroom1(){
     hideItems();
     showItemsBathroom1();
     Player::getInstance().setRoom(&Bathroom1::getInstance());
+    DEBUG_MSG("set bathroom 1");
 }
 
 void MainWindow::setGarden(){
@@ -147,6 +168,7 @@ void MainWindow::setGarden(){
     hideItems();
     showItemsGarden();
     Player::getInstance().setRoom(&Garden::getInstance());
+    DEBUG_MSG("set garden");
 }
 
 void MainWindow::setBedroom(){
@@ -154,6 +176,7 @@ void MainWindow::setBedroom(){
     hideItems();
     showItemsBedroom();
     Player::getInstance().setRoom(&Bedroom::getInstance());
+    DEBUG_MSG("set bedroom");
 }
 
 void MainWindow::setPool(){
@@ -161,6 +184,7 @@ void MainWindow::setPool(){
     hideItems();
     showItemsPool();
     Player::getInstance().setRoom(&Pool::getInstance());
+    DEBUG_MSG("set pool");
 }
 
 void MainWindow::setBathroom2(){
@@ -168,6 +192,7 @@ void MainWindow::setBathroom2(){
     hideItems();
     showItemsBathroom2();
     Player::getInstance().setRoom(&Bathroom2::getInstance());
+    DEBUG_MSG("set bathroom 2");
 }
 
 
@@ -187,6 +212,7 @@ void MainWindow::modifyButtonVisibility(bool isVisible) {
     ui->InventorySlot3->setVisible(isVisible);
     ui->InventorySlot4->setVisible(isVisible);
     ui->InventorySlot5->setVisible(isVisible);
+    ui->InventorySlotKeys->setVisible(isVisible);
 
     ui->valueLabel->setVisible(isVisible);
 }
@@ -200,19 +226,22 @@ void MainWindow::modifyButtonAvailability(bool isEnabled) {
 }
 
 void MainWindow::collectItem(QPushButton* button, Item item){
+
     if(Player::getInstance().getInventorySize() < 5){
         button->setEnabled(false);
         setImageButton(button, "D:/Downloads/ZorkImages/Empty.png");
-        cout<<"Collected Item: " + item.getName()<<endl;
+        DEBUG_MSG("item:" << item.getName() <<" collected (GUI)");
 
         Item ItemCopy = Item(item.getName(), item.getValue(),item.getPath(), item.getExists());
         Player::getInstance().addItem(ItemCopy);
         addToInventory(ItemCopy);
-        cout<<"Inventory value: " << Player::getInstance().getInventoryValue()<<endl;
-        ui->InventoryValue->setText(QString::number(Player::getInstance().getInventoryValue()));
+        DEBUG_MSG("item: " << ItemCopy.getName()<<" collected (Player)");
+
+        ui->InventoryValue->setText("$" + QString::number(Player::getInstance().getInventoryValue()));
 
     }else{
-        cout<<"Full inventory"<<endl;
+        DEBUG_MSG("Full inventory");
+        fullInventoryError();
     }
 }
 
@@ -241,12 +270,54 @@ void MainWindow::addToInventory(Item item){
     }
 }
 
-void MainWindow::showPopUp(){
+void MainWindow::showPopUpWelcome(){
     Dialog popUp;
     popUp.setModal(true);
+    popUp.setLabelWelcomeMessage();
     popUp.exec();
+
 }
 
+void MainWindow::showPopUpWin(){
+    Dialog popUp;
+    popUp.setModal(true);
+    popUp.setLabelWinningMessage();
+    popUp.exec();
+}
+void MainWindow::showPopUpLose(){
+    Dialog popUp;
+    popUp.setModal(true);
+    popUp.setLabelLosingMessage();
+    popUp.exec();
+
+}
+void MainWindow::showMap(){
+    Dialog popUp;
+    popUp.setModal(true);
+    popUp.showMap();
+    popUp.exec();
+
+}
+void MainWindow::fullInventoryError(){
+    Dialog popUp;
+    popUp.setModal(true);
+    popUp.errorMessageFullInventory();
+    popUp.exec();
+
+}
+void MainWindow::invalidRoomError(){
+    Dialog popUp;
+    popUp.setModal(true);
+    popUp.errorMessageInvalidRoom();
+    popUp.exec();
+}
+void MainWindow::restrictedAccessError(){
+    Dialog popUp;
+    popUp.setModal(true);
+    popUp.errorMessageRestrictedAccess();
+    popUp.exec();
+
+}
 void MainWindow::on_startButton_clicked(){
     Driveway::getInstance().setMainWindow(this);
     Hall::getInstance().setMainWindow(this);
@@ -258,33 +329,36 @@ void MainWindow::on_startButton_clicked(){
     Pool::getInstance().setMainWindow(this);
     Bedroom::getInstance().setMainWindow(this);
     Bathroom2::getInstance().setMainWindow(this);
-
+    cout<<"w1"<<endl;
     initializeItems();
 
     ui->InventoryValue->setText(QString::number(Player::getInstance().getInventoryValue()));
 
 
-
     modifyButtonVisibility(true);
     modifyButtonAvailability(true);
     ui->startButton->hide();
-
     Player::getInstance().setRoom(&Driveway::getInstance());
     Player::getInstance().getRoom()->setRoom();
     Player::getInstance().setHasCarKeys(0);
-
-    showPopUp();
+    showPopUpWelcome();
 
 }
 
 void MainWindow::initializeItems(){
+
     //Driveway Items
     Driveway::getInstance().createItems();
     setImageButton(ui->ItemDriveway1, QString::fromStdString(Driveway::getInstance().getItems().at(0).getPath()));
 
+
+
+
+
     //Hall Items
     Hall::getInstance().createItems();
     setImageButton(ui->ItemHall1, QString::fromStdString(Hall::getInstance().getItems().at(0).getPath()));
+
 
     //Living Room Items
     Livingroom::getInstance().createItems();
@@ -419,7 +493,7 @@ void MainWindow::on_rightButton_clicked()
 
 void MainWindow::on_mapButton_clicked()
 {
-    cout<<"SHOW MAP"<<endl;
+    showMap();
 }
 
 
@@ -451,7 +525,6 @@ void MainWindow::on_ItemBedroom1_clicked()
     collectItem(ui->ItemBedroom1, Bedroom::getInstance().getItems().at(0));
 }
 
-
 void MainWindow::on_ItemBedroom2_clicked()
 {
     collectItem(ui->ItemBedroom2, Bedroom::getInstance().getItems().at(1));
@@ -478,7 +551,9 @@ void MainWindow::on_ItemGarden2_clicked()
 
 void MainWindow::on_ItemKitchen1_clicked()
 {
-    collectItem(ui->ItemKitchen1, Kitchen::getInstance().getItems().at(0));
+    ui->ItemKitchen1->setEnabled(false);
+    setImageButton(ui->ItemKitchen1, "D:/Downloads/ZorkImages/Empty.png");
+    setImageLabel(ui->InventorySpaceKeys, QString::fromStdString(Kitchen::getInstance().getItems().at(0).getPath()));
     Player::getInstance().setHasCarKeys(1);
 }
 
@@ -499,4 +574,24 @@ void MainWindow::on_ItemPool1_clicked()
 {
     collectItem(ui->ItemPool1, Pool::getInstance().getItems().at(0));
 }
+
+
+void MainWindow::on_ItemDriveway1_clicked()
+{
+    if(Car::getInstance().checkEligibility()){
+        MainWindow::close();
+
+        if(Car::getInstance().completeGame()){
+            showPopUpWin();
+        }else{
+            showPopUpLose();
+        }
+
+    }else{
+        restrictedAccessError();
+        cout<<"No access"<<endl;
+    };
+}
+
+
 

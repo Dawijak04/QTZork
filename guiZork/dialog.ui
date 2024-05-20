@@ -32,10 +32,10 @@
   <widget class="QLabel" name="WelcomeMessage">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>24</y>
-     <width>281</width>
-     <height>211</height>
+     <x>60</x>
+     <y>10</y>
+     <width>311</width>
+     <height>231</height>
     </rect>
    </property>
    <property name="font">
@@ -64,9 +64,22 @@ fingerprints.
    <property name="geometry">
     <rect>
      <x>-10</x>
-     <y>-16</y>
+     <y>-10</y>
      <width>441</width>
      <height>321</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="mapLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>451</width>
+     <height>241</height>
     </rect>
    </property>
    <property name="text">
@@ -76,6 +89,7 @@ fingerprints.
   <zorder>BackgroundLabel</zorder>
   <zorder>buttonBox</zorder>
   <zorder>WelcomeMessage</zorder>
+  <zorder>mapLabel</zorder>
  </widget>
  <resources/>
  <connections>

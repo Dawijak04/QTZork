@@ -46,7 +46,13 @@ public:
     void showItemsGarden();
     void showItemsPool();
     bool isLabelDisplayingImage(const QLabel* label);
-    void showPopUp();
+    void showPopUpWelcome();
+    void showPopUpLose();
+    void showPopUpWin();
+    void showMap();
+    void invalidRoomError();
+    void restrictedAccessError();
+    void fullInventoryError();
 
 
 
@@ -94,9 +100,14 @@ private slots:
 
     void on_ItemPool1_clicked();
 
+    void on_ItemDriveway1_clicked();
+
 private:
     Ui::MainWindow *ui;
     QList<QLabel*> inventorySlots;
     QList<QLabel*> inventorySpaces;
+
+
+
 };
 #endif // MAINWINDOW_H

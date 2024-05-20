@@ -49,13 +49,14 @@ void Livingroom::goRight(){
     mainWindowPtr->setDiningRoom();
 }
 
-
-void Livingroom::createItems(){
+void Livingroom::createItems() {
     Item gold = Item("Gold", 15, "D:/Downloads/ZorkImages/Gold.png", 1);
-    Items.push_back(gold);
 
     Item cash = Item("Cash", 10, "D:/Downloads/ZorkImages/Cash.png", 1);
+
     Items.push_back(cash);
+    Items.push_back(gold); // Assign the result back to Items
+
 }
 
 vector<Item> Livingroom::getItems(){

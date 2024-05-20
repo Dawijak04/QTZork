@@ -1,28 +1,30 @@
 #include "Item.h"
 
-Item::Item(string name, int value, string path, bool exists) {
-    Item::name = name;
-    Item::value = value;
-    Item::path = path;
-    Item::exists = exists;
-}
+Item::Item() : name(""), value(0), path(""), exists(false) {}
+
+Item::Item(string name, int value, string path, bool exists)
+    : name(name), value(value), path(path), exists(exists) {}
 
 
-string Item::getName(){
+string Item::getName() const {
     return Item::name;
 }
-int Item::getValue() const{
+
+int Item::getValue() const {
     return Item::value;
 }
-string Item::getPath(){
+
+string Item::getPath() const {
     return Item::path;
 }
 
-bool Item::getExists(){
+bool Item::getExists() const {
     return Item::exists;
 }
 
-void Item::setExists(bool exists){
+void Item::setExists(bool exists) {
     Item::exists = exists;
 }
+
+
 

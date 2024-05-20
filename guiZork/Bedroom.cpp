@@ -1,5 +1,5 @@
 #include "Bedroom.h"
-#include <iostream>
+#include <string>
 #include "mainwindow.h"
 using namespace std;
 
@@ -29,8 +29,10 @@ void Bedroom::goDown(){
     mainWindowPtr->setBathroom2();
 }
 void Bedroom::goUp(){
+    mainWindowPtr->invalidRoomError();
 }
 void Bedroom::goLeft(){
+    mainWindowPtr->invalidRoomError();
 }
 void Bedroom::goRight(){
     mainWindowPtr->setLivingRoom();
@@ -38,9 +40,10 @@ void Bedroom::goRight(){
 
 void Bedroom::createItems(){
     Item diamond = Item("Diamond", 20, "D:/Downloads/ZorkImages/Diamond.png", 1);
+    Item cash = Item("Cash", 10, "D:/Downloads/ZorkImages/Cash.png", 1);
     Items.push_back(diamond);
-    Item cash = Item("Cash", 10, "D:/Downloads/ZorkImages/Gold.png", 1);
     Items.push_back(cash);
+
 
 }
 

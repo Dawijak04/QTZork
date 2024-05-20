@@ -1,15 +1,19 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "Room.h"
+#include "ArrayList.h"
 
 
 class Player{
+
+friend class Escaperoute;
+
 private:
     int items;
     Room* currentRoom;///////////////////&
     static Player* instance;
     Player();
-    static vector<Item> Inventory;
+    static ArrayList<Item> Inventory;
     static bool hasCarKeys;
 
 

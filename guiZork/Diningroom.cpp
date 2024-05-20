@@ -39,7 +39,7 @@ void Diningroom::goLeft(){
     mainWindowPtr->setLivingRoom();
 }
 void Diningroom::goRight(){
-    cout<<"invalid"<<endl;
+    mainWindowPtr->invalidRoomError();
 }
 
 void Diningroom::createItems(){

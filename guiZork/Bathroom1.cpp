@@ -29,10 +29,13 @@ void Bathroom1::goDown(){
     mainWindowPtr->setDiningRoom();
 }
 void Bathroom1::goUp(){
+    mainWindowPtr->invalidRoomError();
 }
 void Bathroom1::goLeft(){
+    mainWindowPtr->invalidRoomError();
 }
 void Bathroom1::goRight(){
+    mainWindowPtr->invalidRoomError();
 }
 
 void Bathroom1::createItems(){

@@ -39,6 +39,13 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Item.h Item.cpp
         Escaperoute.h Escaperoute.cpp
         dialog.h dialog.cpp dialog.ui
+        Car.h Car.cpp
+        ArrayList.h ArrayList.cpp
+        Exceptions.h Exceptions.cpp
+
+
+
+
 
 
 

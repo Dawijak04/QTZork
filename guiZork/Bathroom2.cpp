@@ -24,13 +24,16 @@ void Bathroom2::setRoom() const{
 }
 
 void Bathroom2::goDown(){
+    mainWindowPtr->invalidRoomError();
 }
 void Bathroom2::goUp(){
     mainWindowPtr->setBedroom();
 }
 void Bathroom2::goLeft(){
+    mainWindowPtr->invalidRoomError();
 }
 void Bathroom2::goRight(){
+    mainWindowPtr->invalidRoomError();
 }
 
 void Bathroom2::createItems(){

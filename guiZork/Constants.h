@@ -2,7 +2,7 @@
 #define CONSTANTS_H
 #include <string>
 
-extern const int maxItems;
+extern const int MAX_ITEMS = 5;
 extern const double minValue;
 extern int inventoryCount;
 

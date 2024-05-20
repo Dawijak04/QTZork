@@ -1,14 +1,17 @@
 #include "Escaperoute.h"
 #include "Player.h"
+#include <iostream>
+
 
 Escaperoute::Escaperoute() {}
 
-bool checkEligibility(){
-    if(Player::getInstance().getHasCarKeys()){
+bool Escaperoute::checkEligibility(){
+    if(Player::getInstance().hasCarKeys){
         return 1;
     }
     else return 0;
 }
-void completeGame(){
-
+bool Escaperoute::completeGame(){
+    std::cout<<"game finished"<<endl;
+    return 0;
 }

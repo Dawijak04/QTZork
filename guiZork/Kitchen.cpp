@@ -28,7 +28,7 @@ void Kitchen::setRoom() const{
 }
 
 void Kitchen::goDown(){
-    cout<<"invalid"<<endl;
+    mainWindowPtr->invalidRoomError();
 }
 void Kitchen::goUp(){
     cout<<"set room to dining room"<<endl;
@@ -39,7 +39,7 @@ void Kitchen::goLeft(){
     mainWindowPtr->setHall();
 }
 void Kitchen::goRight(){
-    cout<<"invalid"<<endl;
+    mainWindowPtr->invalidRoomError();
 }
 
 void Kitchen::createItems(){

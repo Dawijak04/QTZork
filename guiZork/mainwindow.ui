@@ -98,7 +98,7 @@
    <widget class="QLabel" name="label_background">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>-10</x>
       <y>0</y>
       <width>941</width>
       <height>721</height>
@@ -410,8 +410,8 @@
    <widget class="QLabel" name="valueLabel">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>660</y>
+      <x>510</x>
+      <y>650</y>
       <width>191</width>
       <height>71</height>
      </rect>
@@ -423,10 +423,36 @@
    <widget class="QLabel" name="InventoryValue">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>674</y>
+      <x>550</x>
+      <y>660</y>
       <width>131</width>
       <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventorySpaceKeys">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>670</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="InventorySlotKeys">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>670</y>
+      <width>71</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
@@ -465,6 +491,8 @@
    <zorder>InventorySpace5</zorder>
    <zorder>valueLabel</zorder>
    <zorder>InventoryValue</zorder>
+   <zorder>InventorySlotKeys</zorder>
+   <zorder>InventorySpaceKeys</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

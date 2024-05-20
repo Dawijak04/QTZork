@@ -1,7 +1,7 @@
 #include "Player.h"
 #include <iostream>
 Player* Player::instance = nullptr;
-vector<Item> Player::Inventory;
+ArrayList<Item> Player::Inventory;
 Player::Player() : currentRoom(nullptr), items(0) {}
 bool Player::hasCarKeys;
 
@@ -23,16 +23,17 @@ void Player::setRoom(Room* r){
 };
 
 void Player::addItem(Item item){
-    Inventory.push_back(item);
+    Inventory + item;
 }
 
 int Player::getInventorySize(){
-    return Inventory.size();
+    return Inventory.getSize();
 }
 
 int Player::getInventoryValue(){
     int totalValue = 0;
-    for (const Item& item : Inventory) {
+    for(int i = 0; i<Inventory.getSize();i++){
+        const Item& item = Inventory[i];
         totalValue += item.getValue();
     }
     return totalValue;

@@ -27,21 +27,24 @@ void Driveway::setRoom() const{
 }
 
 void Driveway::goDown(){
-    cout<<"invalid from drive"<<endl;
+    mainWindowPtr->invalidRoomError();
+    //cout<<"invalid from drive"<<endl;
 }
 void Driveway::goUp(){
     mainWindowPtr->setHall();
 }
 void Driveway::goLeft(){
-    cout<<"invalid"<<endl;
+    mainWindowPtr->invalidRoomError();
 }
 void Driveway::goRight(){
-    cout<<"invalid"<<endl;
+    mainWindowPtr->invalidRoomError();
 }
 
 
 void Driveway::createItems(){
+
     Item car = Item("Car", 0, "D:/Downloads/ZorkImages/car.png", 1);
+
     Items.push_back(car);
 }
 
