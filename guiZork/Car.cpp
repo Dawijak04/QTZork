@@ -1,16 +1,17 @@
 #include "Car.h"
-#include <iostream>
 #include "Player.h"
+#include "globals.h"
 
 
 
 Car* Car::instance = nullptr;
 
+//Constructor
 Car::Car():
-    Item("Car", 0, "D:/Downloads/ZorkImages/car.png", 1)
-
+    Item("Car", 0, 0,":/images/images/car.png", 1)
 {}
 
+//Singleton
 Car& Car::getInstance(){
     if(!instance){
         instance = new Car();
@@ -19,9 +20,9 @@ Car& Car::getInstance(){
 }
 
 
+//Completes game
 bool Car::completeGame(){
-    std::cout<<"Game complete by car"<<endl;
-    if(Player::getInstance().getInventoryValue()>=75){
+    if(Player::getInstance().getInventoryValue()>=::MIN_VALUE){
         return 1;
     }
     else{

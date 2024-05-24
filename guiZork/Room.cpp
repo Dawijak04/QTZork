@@ -1,36 +1,54 @@
+//BASE CLASS FOR ROOMS
 #include "Room.h"
-#include <iostream>
+
+//namespace declaration
 using namespace std;
 
+//Debug macro
+//#define DEBUG
+#ifdef DEBUG
+#define DEBUG_MSG(msg) \
+std::cerr << "Debug: " << msg << std::endl;
+#else
+#define DEBUG_MSG(msg)
+#endif
 
+
+//Constructor
 Room::Room(string name):
    name(name){}
 
+//name getter
 string Room::getName() const{
     return name;
 }
 
+//name setter
 void Room::setName(string n){
     name = n;
 }
 
+//setter for background
 void Room::setRoom() const{
-    cout<<"set room background"<<endl;
+    DEBUG_MSG("setting room");
 }
 
+
+
+//changing room functions
 void Room::goDown(){
-     cout<<"going down"<<endl;
+    DEBUG_MSG("going down");
 }
 
 void Room::goUp(){
-     cout<<"going up"<<endl;
+    DEBUG_MSG("going up");
 }
 
 void Room::goLeft(){
-     cout<<"going left"<<endl;
+    DEBUG_MSG("going left");
 }
 
 void Room::goRight(){
-     cout<<"going right"<<endl;
+    DEBUG_MSG("going right");
 }
 

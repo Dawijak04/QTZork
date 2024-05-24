@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include "Item.h"
+#include "dialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -106,6 +107,9 @@ private:
     Ui::MainWindow *ui;
     QList<QLabel*> inventorySlots;
     QList<QLabel*> inventorySpaces;
+    QList<QPushButton*> arrowButtons;
+    QList<QPushButton*> items;
+
 
 
 

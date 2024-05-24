@@ -35,13 +35,19 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Pool.h Pool.cpp
         Bedroom.h Bedroom.cpp
         Bathroom2.h Bathroom2.cpp
-        Constants.h Constants.cpp
+
         Item.h Item.cpp
         Escaperoute.h Escaperoute.cpp
         dialog.h dialog.cpp dialog.ui
         Car.h Car.cpp
         ArrayList.h ArrayList.cpp
         Exceptions.h Exceptions.cpp
+        Entity.h
+
+        globals.h globals.cpp
+        resources.qrc
+
+
 
 
 

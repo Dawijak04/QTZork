@@ -4,6 +4,7 @@
 
 int main(int argc, char *argv[])
 {
+    //Creating main window
     QApplication a(argc, argv);
     MainWindow w;
 
@@ -11,8 +12,6 @@ int main(int argc, char *argv[])
     w.setFixedSize(950, 750);
     w.show();
     w.startScreen();
-
-
 
     return a.exec();
 
