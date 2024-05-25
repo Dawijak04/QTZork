@@ -4,7 +4,7 @@
 Player* Player::instance = nullptr;
 ArrayList<Item> Player::Inventory;
 Player::Player() : currentRoom(nullptr), items(0) {} //Default constructor
-bool Player::hasCarKeys;
+Player::PlayerFlags Player::flags;
 
 //Singleton
 Player& Player::getInstance(){
@@ -46,12 +46,12 @@ int Player::getInventoryValue(){
 
 //getter for car keys
 bool Player::getHasCarKeys(){
-    return hasCarKeys;
+    return flags.hasCarKeys;
 }
 
 //setter for car keys
 void Player::setHasCarKeys(bool keys){
-    hasCarKeys = keys;
+    flags. hasCarKeys = keys;
 }
 
 

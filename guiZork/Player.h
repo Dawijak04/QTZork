@@ -15,7 +15,10 @@ private:
     static Player* instance;
     Player();
     static ArrayList<Item> Inventory;
-    static bool hasCarKeys;
+    struct PlayerFlags {
+        bool hasCarKeys : 1;
+    };
+    static PlayerFlags flags;
 
 
 public:

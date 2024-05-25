@@ -237,7 +237,7 @@ void MainWindow::collectItem(QPushButton* button, Item item){
         setImageButton(button, "D:/Downloads/ZorkImages/Empty.png"); //removes from GUI
         DEBUG_MSG("item:" << item.getName() <<" collected (GUI)");
 
-        Item ItemCopy = item; //deep copy constructor
+        Item ItemCopy = Item(item); //shallow copy constructor
         Player::getInstance().addItem(ItemCopy); //adds to player inventory
         addToInventory(ItemCopy);  //adds to GUI inventory
         DEBUG_MSG("item: " << ItemCopy.getName()<<" collected (Player)");

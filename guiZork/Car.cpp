@@ -8,7 +8,8 @@ Car* Car::instance = nullptr;
 
 //Constructor
 Car::Car():
-    Item("Car", 0, 0,":/images/images/car.png", 1)
+    Item("Car", 0, 0,":/images/images/car.png", 1),
+    Escaperoute("car")
 {}
 
 //Singleton

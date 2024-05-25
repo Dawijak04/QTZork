@@ -1,7 +1,7 @@
 #include "Item.h"
-//#define DEBUG
 
 //debug macro
+//#define DEBUG
 #ifdef DEBUG
 #define DEBUG_MSG(msg) \
 std::cerr << "Debug: " << msg << std::endl;

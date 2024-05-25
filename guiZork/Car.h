@@ -2,7 +2,6 @@
 #define CAR_H
 #include "Item.h"
 #include "Escaperoute.h"
-#include <string>
 using namespace std;
 
 class Car: public Item, public Escaperoute
