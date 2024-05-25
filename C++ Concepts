@@ -1,0 +1,105 @@
+Virtual functions
+Room.h: line 17, line 20, line 21, line 22, line 23, line 24, line 25
+Entity.h: line 9, line 10, line 11
+Escaperoute.h: line 9
+
+Template classes
+ArrayList
+
+Multiple inheritance 
+Car from Escaperoute and Item
+
+Namespaces
+ArrayList.cpp: line 6
+mainwindow.cpp: line 26
+Room.cpp: line 5
+
+Programmer defined exceptions
+Exceptions.cpp: line 4, line 9, line 14
+
+Unions
+Item.h: line 21
+
+Operator overloading
+ArrayList.cpp: line 53, line 62
+
+Abstract classes
+Entity.h
+
+Copy constructor
+Item.cpp: line 26
+
+Bit structures
+Player.h: line 18
+
+Advanced pre-processor directives
+ArrayList.cpp: lines 9-15
+Item.cpp: lines 4-10 
+mainwindow.cpp: lines 29-35
+Room.cpp: lines 8-14
+
+C++ object constrcution sequence 
+Car.cpp: lines 10-12
+
+Initializer list
+Item.cpp: line 17
+Room.cpp: line 19
+
+C++ References
+Item.cpp: line 26
+Player.cpp: line 41
+
+Pointers
+Bathroom1.cpp: line 5
+Bathroom2.cpp: line 5
+Bedroom.cpp: line 6
+Car.cpp: line 7
+Diningroom.cpp: line 7
+Driveway.cpp: line 5
+Garden.cpp: line 5
+Hall.cpp: line 5
+Kitchen.cpp: line 5
+Livingroom.cpp: line 5
+Player.cpp: line 4
+Pool.cpp: line 5
+
+
+Inheritance 
+Pool from Room
+Livingroom from Room
+Kitchen from Room
+Hall from Room
+Garden from Room
+Driveway from Room
+Diningroom from Room
+Bedroom from Room
+Bathroom1 from Room
+Bathroom2 from Room
+Player from Entity
+
+Destructors 
+ArrayList: line 26
+dialog: line 16
+Item.cpp: line 68
+mainwindow.cpp: line 57
+
+Memory management
+ArrayList.cpp: line 35, line 39, line 40
+Singleton design pattern in each room
+Object (item) creation in each room
+
+Header files (inclusion guards)
+Header Files folder
+
+Arrays and pointer
+ArrayList: line 20, line 35, line 39
+
+Friendships
+Player.h: line 10
+
+Global variables
+globals.h: lines 5-6
+
+Private, public, protected
+Private and Public in almost every class
+Protected in Room.h line 12
