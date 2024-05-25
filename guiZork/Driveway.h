@@ -1,9 +1,9 @@
 #ifndef DRIVEWAY_H
 #define DRIVEWAY_H
-
-
 #include "Room.h"
 #include "mainwindow.h"
+#include "Item.h"
+
 using namespace std;
 
 class Driveway : public Room{
@@ -15,11 +15,19 @@ public:
     void goDown() override;
     void goLeft() override;
     void goRight() override;
+    void createItems() override;
+    vector<Item> getItems() override;
+
+
 
 private:
     static MainWindow* mainWindowPtr;
     Driveway();
     static Driveway* instance;
+    static vector<Item> Items;
+
+
+
 
 };
 

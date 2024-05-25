@@ -1,13 +1,12 @@
 #include "Hall.h"
-#include <iostream>
 #include "mainwindow.h"
 
-using namespace std;
-
-
+//Attributes
 Hall* Hall::instance = nullptr;
 MainWindow* Hall::mainWindowPtr = nullptr;
+vector<Item> Hall::Items;
 
+//Singleton
 Hall& Hall::getInstance(){
     if(!instance){
         instance = new Hall();
@@ -15,34 +14,48 @@ Hall& Hall::getInstance(){
     return *instance;
 }
 
+//Constructor
 Hall::Hall():
     Room("Hall")
 {}
 
+//Assinging pointer to window
 void Hall::setMainWindow(MainWindow* mainWindow){
     mainWindowPtr = mainWindow;
 }
 
+//setting background
 void Hall::setRoom() const{
-    cout<<"setting room to hall" << endl;
     mainWindowPtr->setHall();
 }
 
+//setting driveway
 void Hall::goDown(){
     mainWindowPtr->setDriveway();
-    //Player::getInstance().setRoom(&Driveway::getInstance());
 }
 
+//setting living room
 void Hall::goUp(){
-    cout<<"up from hall"<<endl;
     mainWindowPtr->setLivingRoom();
-    //Player::getInstance().setRoom(&Livingroom::getInstance());
-
-
 }
+
+//invalid
 void Hall::goLeft(){
-    cout<<"invalid"<<endl;
+    mainWindowPtr->invalidRoomError();
 }
+
+//invalid
 void Hall::goRight(){
     mainWindowPtr->setKitchen();
+}
+
+//creating items
+void Hall::createItems(){
+    Item cash = Item("Cash", 10, 0,":/images/images/Cash.png", 1);
+    Items.push_back(cash);
+}
+
+//getter
+vector<Item> Hall::getItems(){
+    return Items;
 }

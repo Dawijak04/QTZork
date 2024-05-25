@@ -1,10 +1,12 @@
 #include "Player.h"
-#include "Driveway.h"
-#include <iostream>
+
+//Attributes
 Player* Player::instance = nullptr;
+ArrayList<Item> Player::Inventory;
+Player::Player() : currentRoom(nullptr), items(0) {} //Default constructor
+Player::PlayerFlags Player::flags;
 
-Player::Player() : currentRoom(nullptr), items(0) {}
-
+//Singleton
 Player& Player::getInstance(){
     if(!instance){
         instance = new Player();
@@ -12,21 +14,46 @@ Player& Player::getInstance(){
     return *instance;
 }
 
+//getters for current room
 Room* Player::getRoom(){
     return currentRoom;
 };
 
+//setter for current room
 void Player::setRoom(Room* r){
     currentRoom = r;
-    std::cout<<"set current room (player)" << endl;
-    std::cout<<currentRoom->getName() << endl;
 };
-int Player::getItems(){
-    return items;
-};
-void Player::setItems(int number){
-    items = number;
-};
+
+//adding item to player inventory
+void Player::addItem(Item item){
+    Inventory + item;
+}
+
+//getter for inventory size
+int Player::getInventorySize(){
+    return Inventory.getSize();
+}
+
+//getter for inventory value
+int Player::getInventoryValue(){
+    int totalValue = 0;
+    for(int i = 0; i<Inventory.getSize();i++){
+        const Item& item = Inventory[i];
+        totalValue += item.getIntValue();
+    }
+    return totalValue;
+}
+
+//getter for car keys
+bool Player::getHasCarKeys(){
+    return flags.hasCarKeys;
+}
+
+//setter for car keys
+void Player::setHasCarKeys(bool keys){
+    flags. hasCarKeys = keys;
+}
+
 
 
 

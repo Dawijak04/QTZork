@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/bathroom1.webp</file>
+        <file>images/bathroom2.jpg</file>
+        <file>images/bedroom.jpg</file>
+        <file>images/car.png</file>
+        <file>images/Cash.png</file>
+        <file>images/Diamond.png</file>
+        <file>images/diningRoom.webp</file>
+        <file>images/driveway.jpg</file>
+        <file>images/Empty.png</file>
+        <file>images/garden.webp</file>
+        <file>images/Gold.png</file>
+        <file>images/hall.jpg</file>
+        <file>images/Keys.png</file>
+        <file>images/kitchen.png</file>
+        <file>images/livingRoom.jpg</file>
+        <file>images/Map.png</file>
+        <file>images/OldPaper.webp</file>
+        <file>images/pool.jpg</file>
+        <file>images/slot.webp</file>
+        <file>images/start.jpeg</file>
+        <file>images/start.png</file>
+        <file>images/valueLabel.webp</file>
+    </qresource>
+</RCC>

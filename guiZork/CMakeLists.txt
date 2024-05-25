@@ -23,17 +23,39 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(guiZork
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        Room.h
-        Hall.h
-        Player.h
-        Player.cpp
-        Room.cpp
-        Hall.h
-        Hall.cpp
-        Driveway.h
-        Driveway.cpp
+        Room.h Room.cpp
+        Player.h Player.cpp
+        Hall.h Hall.cpp
+        Driveway.h Driveway.cpp
         Livingroom.h Livingroom.cpp
         Kitchen.h Kitchen.cpp
+        Diningroom.h Diningroom.cpp
+        Bathroom1.h Bathroom1.cpp
+        Garden.h Garden.cpp
+        Pool.h Pool.cpp
+        Bedroom.h Bedroom.cpp
+        Bathroom2.h Bathroom2.cpp
+
+        Item.h Item.cpp
+        Escaperoute.h Escaperoute.cpp
+        dialog.h dialog.cpp dialog.ui
+        Car.h Car.cpp
+        ArrayList.h ArrayList.cpp
+        Exceptions.h Exceptions.cpp
+        Entity.h
+
+        globals.h globals.cpp
+        resources.qrc
+
+
+
+
+
+
+
+
+
+
 
 
 

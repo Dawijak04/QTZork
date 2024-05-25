@@ -1,32 +1,18 @@
-#include "Hall.h"
 #include "mainwindow.h"
-#include "Player.h"
 #include <QApplication>
-#include <iostream>
 
 
 int main(int argc, char *argv[])
 {
+    //Creating main window
     QApplication a(argc, argv);
     MainWindow w;
+
+    w.setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    w.setFixedSize(950, 750);
     w.show();
-
-
-
-    //std::cout << user.getItems() << endl;
-
-
-
-    // Hall startRoom;
-
-
-    // Room* currentRoom;
-    // currentRoom = &startRoom;
-
-    // currentRoom->setRoom();
-
     w.startScreen();
 
-
     return a.exec();
+
 }

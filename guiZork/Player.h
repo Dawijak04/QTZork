@@ -1,26 +1,35 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "Room.h"
+#include "ArrayList.h"
+#include "Entity.h"
 
 
-class Player{
+class Player: public Entity{
+
+friend class Escaperoute;
+
 private:
     int items;
-    Room* currentRoom;///////////////////&
+    Room* currentRoom;
     static Player* instance;
     Player();
+    static ArrayList<Item> Inventory;
+    struct PlayerFlags {
+        bool hasCarKeys : 1;
+    };
+    static PlayerFlags flags;
 
 
 public:
     static Player& getInstance();
-    Room* getRoom();////////////////&
-    void setRoom(Room* room);
-    int getItems();
-    void setItems(int number);
-
-
-
-
+    Room* getRoom() override;
+    void setRoom(Room* room) override;
+    void addItem(Item item);
+    int getInventorySize();
+    int getInventoryValue();
+    bool getHasCarKeys();
+    void setHasCarKeys(bool keys);
 
 };
 
